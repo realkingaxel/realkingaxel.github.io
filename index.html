@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Axel Valavaara — Portfolio</title>
+  <meta name="description" content="Axel Valavaara — Finance student focusing on DeFi credit spreads. Beginner–intermediate Solidity dev exploring smart contract security and protocol design." />
+  <meta property="og:title" content="Axel Valavaara — Portfolio" />
+  <meta property="og:description" content="Finance student at Hanken; writing a thesis on DeFi credit spreads. Solidity dev exploring security and protocol design." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#2563eb" />
+  <style>
+    :root { --fg:#0f172a; --muted:#475569; --bg:#f8fafc; --card:#ffffff; --accent:#2563eb; }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;background:var(--bg);color:var(--fg)}
+    .wrap{max-width:860px;margin:0 auto;padding:24px}
+    .card{background:var(--card);border:1px solid #e2e8f0;border-radius:16px;padding:20px;margin:14px 0;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+    h1{font-size:28px;margin:0 0 6px}
+    h2{font-size:18px;margin:10px 0}
+    h3{font-size:16px;margin:0 0 4px}
+    p{margin:8px 0;color:var(--muted);line-height:1.55}
+    .pill{display:inline-block;padding:6px 10px;border:1px solid #e2e8f0;border-radius:999px;margin:4px 6px 0 0;font-size:14px}
+    .grid{display:grid;gap:12px}
+    @media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .footer{font-size:14px;color:var(--muted);margin-top:12px}
+    .meta{font-size:14px}
+    .links{display:flex;flex-wrap:wrap;gap:10px}
+    .links a{display:inline-flex;align-items:center;gap:6px}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card">
+      <h1>Axel Valavaara</h1>
+      <p>Finance student at Hanken School of Economics, writing a bachelor’s thesis on credit spreads in decentralized finance (DeFi). Beginner–intermediate Solidity developer with a few small projects; eager to deepen smart contract security and protocol design skills at the intersection of TradFi and DeFi.</p>
+      <p class="meta"><strong>Contact:</strong>
+        <a href="mailto:axel.valavaara@gmail.com" aria-label="Email">axel.valavaara@gmail.com</a> ·
+        <span title="Discord username">Discord: realkingacke</span> ·
+        <a href="https://github.com/realkingaxel" rel="me noopener" target="_blank">GitHub</a>
+      </p>
+      <div aria-label="Skills">
+        <span class="pill">Solidity</span>
+        <span class="pill">Python</span>
+        <span class="pill">OpenZeppelin</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Selected Projects</h2>
+      <div class="grid">
+        <div class="card" aria-label="Project: Fundraising Smart Contract">
+          <h3>Fundraising Smart Contract — simple crowdfunding dApp</h3>
+          <p>A minimal smart contract that lets anyone contribute ETH to a shared pool, tracks funders and amounts, and allows the owner to withdraw funds. Built as a learning project to practice Foundry testing and deployment.</p>
+          <p>🔗 <a href="https://github.com/realkingaxel/foundry-fund-me-f23" target="_blank" rel="noopener">Repo</a></p>
+          <p class="footer">Stack: Solidity, Foundry</p>
+        </div>
+        <div class="card" aria-label="Project: Reddit Bot in Python">
+          <h3>Reddit Bot in Python — automated image posting</h3>
+          <p>A Python script that schedules image submissions to selected subreddit(s), randomizing the time within a defined daily window. Includes simple configuration, basic logging, and guardrails to avoid repeat posts.</p>
+          <p>🔗 <a href="https://github.com/realkingaxel/Reddit_bot" target="_blank" rel="noopener">Repo</a></p>
+          <p class="footer">Stack: Python, Reddit API</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>What I’m Looking For</h2>
+      <p>Seeking an internship or part-time role where I can apply Solidity and learn on-chain credit risk modeling.</p>
+    </section>
+
+    <section class="footer wrap" style="padding:0">
+      <p>Last updated: Sep 11, 2025 • © Axel Valavaara</p>
+    </section>
+  </main>
+</body>
+</html>
