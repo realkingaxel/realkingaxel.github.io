@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Name — Portfolio</title>
+  <style>
+    :root { --fg:#0f172a; --muted:#475569; --bg:#f8fafc; --card:#ffffff; --accent:#2563eb; }
+    *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;background:var(--bg);color:var(--fg)}
+    .wrap{max-width:860px;margin:0 auto;padding:24px}
+    .card{background:var(--card);border:1px solid #e2e8f0;border-radius:16px;padding:20px;margin:14px 0;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+    h1{font-size:28px;margin:0 0 6px} h2{font-size:18px;margin:10px 0} p{margin:8px 0;color:var(--muted);line-height:1.5}
+    .pill{display:inline-block;padding:6px 10px;border:1px solid #e2e8f0;border-radius:999px;margin:4px 6px 0 0;font-size:14px}
+    .grid{display:grid;gap:12px} @media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
+    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+    .footer{font-size:14px;color:var(--muted);margin-top:12px}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card">
+      <h1>Your Name</h1>
+      <p>2–3 sentence bio. What you build, what you’re exploring (e.g., account abstraction, restaking, DeFi infra), and what you’re open to.</p>
+      <p><strong>Contact:</strong> <a href="mailto:you@example.com">you@example.com</a> · <a href="https://github.com/youruser">GitHub</a> · <a href="https://t.me/yourhandle">Telegram</a> · ENS: <span>yourname.eth</span></p>
+      <div>
+        <span class="pill">Solidity</span><span class="pill">Foundry</span><span class="pill">Hardhat</span>
+        <span class="pill">Next.js</span><span class="pill">wagmi</span><span class="pill">The Graph</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Selected Projects</h2>
+      <div class="grid">
+        <div class="card">
+          <h3 style="margin:0 0 4px">Project One — 1-liner value prop</h3>
+          <p>What it does, who it’s for, and what’s novel.</p>
+          <p>🔗 <a href="https://your-demo-url">Live demo</a> · <a href="https://github.com/youruser/project-one">Repo</a> · Contracts: <a href="#">0xabc…1234</a></p>
+          <p class="footer">Stack: Solidity, Foundry, Next.js</p>
+        </div>
+        <div class="card">
+          <h3 style="margin:0 0 4px">Project Two — 1-liner</h3>
+          <p>Short description.</p>
+          <p>🔗 <a href="#">Live demo</a> · <a href="#">Repo</a> · Contracts: <a href="#">0xdef…5678</a></p>
+          <p class="footer">Stack: Solidity, Hardhat, viem</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>What I’m Looking For</h2>
+      <p>e.g., “Hackathon teammates for AA wallet plugins / open to sponsor bounties around oracles and cross-chain messaging.”</p>
+    </section>
+
+    <section class="footer wrap" style="padding:0">
+      <p>Last updated: Sep 2025 • © Your Name</p>
+    </section>
+  </main>
+</body>
+</html>
