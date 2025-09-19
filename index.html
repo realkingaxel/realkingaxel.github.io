@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -8,39 +8,154 @@
   <meta property="og:title" content="Axel Valavaara — Portfolio" />
   <meta property="og:description" content="Finance student at Hanken; writing a thesis on DeFi credit spreads. Solidity dev exploring security and protocol design." />
   <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#2563eb" />
+  <meta name="theme-color" content="#0b0f19" />
   <style>
-    :root { --fg:#0f172a; --muted:#475569; --bg:#f8fafc; --card:#ffffff; --accent:#2563eb; }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;background:var(--bg);color:var(--fg)}
-    .wrap{max-width:860px;margin:0 auto;padding:24px}
-    .card{background:var(--card);border:1px solid #e2e8f0;border-radius:16px;padding:20px;margin:14px 0;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-    h1{font-size:28px;margin:0 0 6px}
-    h2{font-size:18px;margin:10px 0}
-    h3{font-size:16px;margin:0 0 4px}
-    p{margin:8px 0;color:var(--muted);line-height:1.55}
-    .pill{display:inline-block;padding:6px 10px;border:1px solid #e2e8f0;border-radius:999px;margin:4px 6px 0 0;font-size:14px}
-    .grid{display:grid;gap:12px}
-    @media(min-width:720px){.grid{grid-template-columns:1fr 1fr}}
-    a{color:var(--accent);text-decoration:none}
-    a:hover{text-decoration:underline}
-    .footer{font-size:14px;color:var(--muted);margin-top:12px}
+    /* =============================
+       THEME
+       ============================= */
+    :root {
+      /* light (fallback) */
+      --bg: #f8fafc;
+      --bg-muted: #eef2f7;
+      --fg: #0f172a;
+      --muted: #475569;
+      --card: #ffffffcc;
+      --border: #e2e8f0;
+      --accent: #7c3aed; /* violet */
+      --accent-2: #22d3ee; /* cyan */
+      --shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #0b0f19;
+      --bg-muted: #0f172a;
+      --fg: #e5e7eb;
+      --muted: #94a3b8;
+      --card: rgba(15, 23, 42, 0.7);
+      --border: rgba(148, 163, 184, 0.15);
+      --accent: #7c3aed;
+      --accent-2: #22d3ee;
+      --shadow: 0 16px 50px rgba(0, 0, 0, 0.45);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) { color-scheme: dark; }
+    }
+
+    /* =============================
+       BASE
+       ============================= */
+    * { box-sizing: border-box }
+    html, body { height: 100% }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(124, 58, 237, 0.20), transparent),
+        radial-gradient(800px 500px at 90% 10%, rgba(34, 211, 238, 0.18), transparent),
+        var(--bg);
+      color:var(--fg);
+      letter-spacing: 0.2px;
+    }
+    .wrap{max-width:960px;margin:0 auto;padding:28px}
+
+    a{color:var(--accent-2);text-decoration:none}
+    a:hover{opacity:.9;text-decoration:underline}
+
+    /* =============================
+       COOL CARD (glass + gradient border)
+       ============================= */
+    .card{
+      position: relative;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
+      margin: 16px 0;
+      box-shadow: var(--shadow);
+      backdrop-filter: saturate(140%) blur(8px);
+      -webkit-backdrop-filter: saturate(140%) blur(8px);
+      overflow: hidden;
+    }
+    .card::before{
+      content: "";
+      position: absolute; inset: -1px;
+      border-radius: 20px;
+      padding: 1px; /* gradient border thickness */
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      -webkit-mask: 
+        linear-gradient(#000 0 0) content-box, 
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    h1{font-size:32px;margin:0 0 8px;line-height:1.15}
+    h2{font-size:20px;margin:10px 0 8px}
+    h3{font-size:16px;margin:0 0 6px}
+    p{margin:8px 0;color:var(--muted);line-height:1.6}
+
     .meta{font-size:14px}
-    .links{display:flex;flex-wrap:wrap;gap:10px}
-    .links a{display:inline-flex;align-items:center;gap:6px}
+
+    .grid{display:grid;gap:14px}
+    @media(min-width:740px){.grid{grid-template-columns:1fr 1fr}}
+
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 12px;border:1px solid var(--border);
+      border-radius:999px;margin:6px 6px 0 0;font-size:13px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), transparent);
+    }
+
+    /* hero header */
+    .hero-title{
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      font-weight: 800; letter-spacing: .2px;
+    }
+
+    .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+    .btn-link{
+      display:inline-flex;align-items:center;gap:8px;padding:8px 12px;
+      border:1px solid var(--border);border-radius:12px;text-decoration:none;
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,0));
+    }
+    .btn-link:hover{transform: translateY(-1px); transition: transform .15s ease}
+
+    /* footer */
+    .footer{font-size:14px;color:var(--muted);margin-top:12px}
+
+    /* topbar */
+    .topbar{
+      display:flex;justify-content:space-between;align-items:center;margin-bottom:12px
+    }
+    .mode-toggle{
+      border:1px solid var(--border);background:transparent;color:var(--fg);
+      padding:8px 12px;border-radius:12px;cursor:pointer;font:inherit
+    }
+    .mode-toggle:hover{opacity:.85}
+
+    /* subtle fade-in */
+    .fade-in{animation: fade .5s ease both}
+    @keyframes fade{from{opacity:0; transform: translateY(4px)} to{opacity:1; transform:none}}
   </style>
 </head>
 <body>
-  <main class="wrap">
+  <main class="wrap fade-in">
+    <div class="topbar">
+      <span></span>
+      <button class="mode-toggle" id="modeBtn" aria-label="Toggle color theme">Switch theme</button>
+    </div>
+
     <section class="card">
-      <h1>Axel Valavaara</h1>
+      <h1 class="hero-title">Axel Valavaara</h1>
       <p>Finance student at Hanken School of Economics, writing a bachelor’s thesis on credit spreads in decentralized finance (DeFi). Beginner–intermediate Solidity developer with a few small projects; eager to deepen smart contract security and protocol design skills at the intersection of TradFi and DeFi.</p>
-      <p class="meta"><strong>Contact:</strong>
-        <a href="mailto:axel.valavaara@gmail.com" aria-label="Email">axel.valavaara@gmail.com</a> ·
-        <span title="Discord username">Discord: realkingacke</span> ·
-        <a href="https://github.com/realkingaxel" rel="me noopener" target="_blank">GitHub</a>
-      </p>
-      <div aria-label="Skills">
+      <div class="links">
+        <a class="btn-link" href="mailto:axel.valavaara@gmail.com" aria-label="Email">📧 Email</a>
+        <a class="btn-link" href="https://github.com/realkingaxel" rel="me noopener" target="_blank">🌐 GitHub</a>
+        <span class="btn-link" title="Discord username">💬 realkingacke</span>
+      </div>
+      <div aria-label="Skills" style="margin-top:8px">
         <span class="pill">Solidity</span>
         <span class="pill">Python</span>
         <span class="pill">OpenZeppelin</span>
@@ -50,16 +165,16 @@
     <section class="card">
       <h2>Selected Projects</h2>
       <div class="grid">
-        <div class="card" aria-label="Project: Fundraising Smart Contract">
+        <div class="card" aria-label="Project: Lottery">
           <h3>Lottery (Foundry + Chainlink VRF v2.5)</h3>
-          <p>A decentralized, automated lottery (raffle) built with Foundry and Chainlink VRF v2.5. Players pay an entrance fee to join; after a configurable interval, a verifiably random winner is drawn and the pot is paid out</p>
-          <p>🔗 <a href="https://github.com/realkingaxel/Smart-Contract-Lottery" target="_blank" rel="noopener">Repo</a></p>
+          <p>A decentralized, automated lottery (raffle) built with Foundry and Chainlink VRF v2.5. Players pay an entrance fee to join; after a configurable interval, a verifiably random winner is drawn and the pot is paid out.</p>
+          <p>🔗 <a href="https://github.com/realkingaxel/Smart-Contract-Lottery" target="_blank" rel="noopener">Repository</a></p>
           <p class="footer">Stack: Solidity, Foundry</p>
         </div>
         <div class="card" aria-label="Project: Reddit Bot in Python">
           <h3>Reddit Bot in Python — automated image posting</h3>
           <p>A Python script that schedules image submissions to selected subreddit(s), randomizing the time within a defined daily window. Includes simple configuration, basic logging, and guardrails to avoid repeat posts.</p>
-          <p>🔗 <a href="https://github.com/realkingaxel/Reddit_bot" target="_blank" rel="noopener">Repo</a></p>
+          <p>🔗 <a href="https://github.com/realkingaxel/Reddit_bot" target="_blank" rel="noopener">Repository</a></p>
           <p class="footer">Stack: Python, Reddit API</p>
         </div>
       </div>
@@ -67,12 +182,29 @@
 
     <section class="card">
       <h2>What I’m Looking For</h2>
-      <p>I’m looking to deepen my skills in smart contract development and security through real projects</p>
+      <p>I’m looking to deepen my skills in smart contract development and security through real projects.</p>
     </section>
 
     <section class="footer wrap" style="padding:0">
       <p>Last updated: Sep 11, 2025 • © Axel Valavaara</p>
     </section>
   </main>
+
+  <script>
+    // Simple theme toggle: dark by default, persist in localStorage
+    const root = document.documentElement;
+    const btn = document.getElementById('modeBtn');
+    const stored = localStorage.getItem('axel-theme');
+    if (stored) root.setAttribute('data-theme', stored);
+    btn.addEventListener('click', () => {
+      const curr = root.getAttribute('data-theme');
+      const next = curr === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('axel-theme', next);
+      // Update theme-color meta for mobile browsers
+      const meta = document.querySelector('meta[name="theme-color"]');
+      meta.setAttribute('content', next === 'dark' ? '#0b0f19' : '#f8fafc');
+    });
+  </script>
 </body>
 </html>
